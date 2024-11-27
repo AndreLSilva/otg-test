@@ -59,4 +59,36 @@ export const defaultTheme = createTheme({
       contrastText: "#ffffff",
     },
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        iconSizeSmall: { margin: 0 },
+        iconSizeMedium: { margin: 0 },
+        iconSizeLarge: { margin: 0 },
+      },
+      variants: [
+        {
+          props: { size: "small" },
+          style: {
+            gap: "0.375rem",
+            height: "2.375rem",
+          },
+        },
+        {
+          props: { size: "medium" },
+          style: {
+            gap: "0.5rem",
+            height: "2.875rem",
+          },
+        },
+        {
+          props: { size: "large" },
+          style: {
+            gap: "0.75rem",
+            height: "3.25rem",
+          },
+        },
+      ],
+    },
+  },
 });
