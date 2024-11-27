@@ -64,15 +64,35 @@ export const defaultTheme = createTheme({
   },
   typography: {
     fontFamily: publicSans.style.fontFamily,
+    h4: {
+      fontSize: "1.875rem", // 30px
+      lineHeight: "2.203125rem",
+      fontWeight: "700",
+    },
+    h5: {
+      fontSize: "1.375rem", // 22px
+      lineHeight: "1.615625rem",
+      fontWeight: "700",
+    },
     subtitle1: {
-      fontSize: "1.125rem",
+      fontSize: "1.125rem", // 18px
       lineHeight: "1.321875rem",
       fontWeight: "700",
     },
+    body2: {
+      fontSize: "0.875rem", // 14px
+      lineHeight: "1.028125rem",
+      fontWeight: "500",
+    },
     overline: {
-      fontSize: "0.75rem",
+      fontSize: "0.75rem", // 12px
       lineHeight: "0.88125rem",
       fontWeight: "500",
+    },
+    caption: {
+      fontSize: "0.625rem", // 10px
+      lineHeight: "0.734375rem",
+      fontWeight: "400",
     },
   },
   components: {
