@@ -30,6 +30,7 @@ export const defaultTheme = createTheme({
     mode: "light",
     primary: {
       main: "#000000",
+      light: "#242528",
       contrastText: "#ffffff",
     },
     primaryAlt: {
@@ -38,10 +39,12 @@ export const defaultTheme = createTheme({
     },
     secondary: {
       main: "#C7B2FF",
+      light: "#C7B2FF",
       contrastText: "#000000",
     },
     tertiary: {
       main: "#0AD2A5",
+      light: "#0AD2A5",
       contrastText: "#000000",
     },
     background: {
