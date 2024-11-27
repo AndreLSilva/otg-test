@@ -1,3 +1,4 @@
+import { ProgressBar } from "@/components/atoms/progress/progress-bar/ProgressBar";
 import { Grid2, Typography } from "@mui/material";
 import { Container } from "./AppDigest.styles";
 import { AppDigestCard } from "./AppDigestCard";
@@ -20,12 +21,13 @@ export function AppDigest() {
         <AppDigestCard titlePrimary="000" description="pesquisas em roteirização" />
       </Grid2>
       <Grid2 size={{ xs: 2, md: 1 }}>
-        {/* TODO: Progress bar */}
         <AppDigestCard
           titlePrimary="0.000"
           titleSecondary="00.000"
           description={"disparos\nfeitos"}
-        />
+        >
+          <ProgressBar color="primaryAlt" progress={0.4} />
+        </AppDigestCard>
       </Grid2>
     </Container>
   );

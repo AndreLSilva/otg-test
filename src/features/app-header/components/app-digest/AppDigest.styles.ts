@@ -10,5 +10,13 @@ export const Container = styled(Grid2)(({ theme }) => ({
 }));
 
 export const Card = styled(Paper)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.375rem",
+
   height: "10.6875rem",
+
+  "& > :last-child": {
+    marginTop: "auto",
+  },
 }));

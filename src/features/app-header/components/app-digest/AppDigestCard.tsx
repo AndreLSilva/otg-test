@@ -17,7 +17,7 @@ export function AppDigestCard({
 }: AppDigestCardProps) {
   return (
     <Card color="primary">
-      <Typography component="p" variant="h4" marginBottom="0.375rem">
+      <Typography component="p" variant="h4">
         {titlePrimary}
         {titleSecondary && (
           <Typography component="span" variant="subtitle1" color="textSecondary" fontWeight="400">
@@ -34,7 +34,7 @@ export function AppDigestCard({
         {description}
       </Typography>
 
-      {children}
+      <div>{children}</div>
     </Card>
   );
 }
