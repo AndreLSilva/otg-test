@@ -1,6 +1,6 @@
-import { Box, SxProps, Theme } from "@mui/material";
+import { SxProps, Theme } from "@mui/material";
 import { ReactNode } from "react";
-import { cardStyles } from "./Card.styles";
+import { Container, Content } from "./Card.styles";
 
 interface CardProps {
   sx?: SxProps<Theme>;
@@ -10,14 +10,10 @@ interface CardProps {
 
 export type CardColors = "primary" | "secondary" | "tertiary";
 
-export function Card({
-  sx = {},
-  color = "primary",
-  children = undefined,
-}: CardProps) {
+export function Card({ color = "primary", children = undefined }: CardProps) {
   return (
-    <Box sx={[cardStyles.container(color), ...(Array.isArray(sx) ? sx : [sx])]}>
-      <Box sx={cardStyles.content(color)}>{children}</Box>
-    </Box>
+    <Container sx={{ backgroundColor: `${color}.main` }}>
+      <Content sx={{ borderColor: `${color}.main` }}>{children}</Content>
+    </Container>
   );
 }

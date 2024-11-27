@@ -9,6 +9,7 @@ interface ButtonProps {
   endIcon?: OverridableComponent<SvgIconTypeMap> & { muiName: string };
   color?: ButtonOwnProps["color"];
   size?: ButtonOwnProps["size"];
+  fullWidth?: boolean;
   type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
   children: string;
 }
@@ -19,6 +20,7 @@ export function Button({
   endIcon = undefined,
   color = "primary",
   size = "small",
+  fullWidth = false,
   type = "button",
   children,
 }: ButtonProps) {
@@ -26,13 +28,14 @@ export function Button({
 
   return (
     <MUIButton
+      sx={isIconButton ? iconButtonSx : undefined}
       variant={variant}
-      color={color}
-      size={size}
-      type={type}
       startIcon={startIcon && createElement(startIcon)}
       endIcon={endIcon && createElement(endIcon)}
-      sx={isIconButton ? iconButtonSx : undefined}
+      color={color}
+      size={size}
+      fullWidth={fullWidth}
+      type={type}
     >
       {children}
     </MUIButton>
