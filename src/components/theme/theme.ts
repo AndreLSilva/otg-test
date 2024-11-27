@@ -59,6 +59,19 @@ export const defaultTheme = createTheme({
       contrastText: "#ffffff",
     },
   },
+  typography: {
+    fontFamily: publicSans.style.fontFamily,
+    subtitle1: {
+      fontSize: "1.125rem",
+      lineHeight: "1.321875rem",
+      fontWeight: "700",
+    },
+    overline: {
+      fontSize: "0.75rem",
+      lineHeight: "0.88125rem",
+      fontWeight: "500",
+    },
+  },
   components: {
     MuiButton: {
       styleOverrides: {
