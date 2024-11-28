@@ -1,39 +1,38 @@
-import { SxProps, Theme } from "@mui/material";
+import { Card } from "@/components/atoms/card/Card";
+import { StarsIcon } from "@/components/atoms/icons/StarsIcon";
+import { styled } from "@mui/material";
 
-const container: SxProps<Theme> = {
-  width: "14.375rem",
-  height: "15.125rem",
-};
+export const Container = styled(Card)`
+  width: 14.375rem;
+  height: 15.125rem;
+`;
 
-const header: SxProps<Theme> = {
-  marginY: "1.25rem",
-  marginX: "1rem",
-  border: (theme) => `solid 0 ${theme.palette.primary.main}`,
-  borderLeftWidth: "0.125rem",
-  paddingLeft: "0.25rem",
+export const Header = styled("div")`
+  margin: 1.25rem 1rem;
+  border: solid 0 ${({ theme }) => theme.palette.primary.main};
+  border-left-width: 0.125rem;
+  padding-left: 0.25rem;
 
-  "& > :last-child": {
-    marginTop: "0.25rem",
-  },
-};
+  & > :last-child {
+    margin-top: 0.25rem;
+  }
+`;
 
-const fieldBadge: SxProps<Theme> = {
-  width: "0.5rem",
-  height: "0.5rem",
+export const FieldBadge = styled("div")`
+  width: 0.5rem;
+  height: 0.5rem;
 
-  borderRadius: "0.5rem",
+  border-radius: 0.5rem;
 
-  position: "absolute",
-  top: "0.5rem",
-  right: "0.5rem",
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 
-  backgroundColor: "tertiary.main",
-};
+  background: ${({ theme }) => theme.palette.tertiary.main};
+`;
 
-const draftBadge: SxProps<Theme> = {
-  color: "secondary.main",
-  marginLeft: "0.125rem",
-  marginTop: "-0.625rem",
-};
-
-export const researchCardStyles = { container, header, fieldBadge, draftBadge };
+export const DraftBadge = styled(StarsIcon)`
+  margin-left: 0.125rem;
+  margin-top: -0.625rem;
+  color: ${({ theme }) => theme.palette.secondary.main};
+`;

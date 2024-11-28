@@ -1,11 +1,9 @@
 "use client";
 
-import { Card } from "@/components/atoms/card/Card";
-import { StarsIcon } from "@/components/atoms/icons/StarsIcon";
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { ReactNode } from "react";
 import { Research } from "../../research.types";
-import { researchCardStyles } from "./ResearchCard.styles";
+import { Container, DraftBadge, FieldBadge, Header } from "./ResearchCard.styles";
 
 interface ResearchCardProps {
   research: Research;
@@ -17,14 +15,14 @@ export function ResearchCard({
   children = undefined,
 }: ResearchCardProps) {
   return (
-    <Card sx={researchCardStyles.container}>
-      <Box sx={researchCardStyles.header}>
+    <Container>
+      <Header>
         <Typography variant="overline">
           {status}
           {
             {
-              "Em Campo": <Box sx={researchCardStyles.fieldBadge} />,
-              Rascunho: <Box component={StarsIcon} sx={researchCardStyles.draftBadge} />,
+              "Em Campo": <FieldBadge />,
+              Rascunho: <DraftBadge />,
             }[status]
           }
         </Typography>
@@ -34,9 +32,9 @@ export function ResearchCard({
         >
           {name}
         </Typography>
-      </Box>
+      </Header>
 
       {children}
-    </Card>
+    </Container>
   );
 }
