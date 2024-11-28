@@ -1,7 +1,8 @@
-import { ButtonOwnProps, Button as MUIButton, SxProps } from "@mui/material";
+import { ButtonOwnProps, Button as MUIButton } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { SvgIconTypeMap } from "@mui/material/SvgIcon";
 import { ButtonHTMLAttributes, createElement } from "react";
+import { iconButtonSx } from "./Button.styles";
 
 interface ButtonProps {
   variant?: ButtonOwnProps["variant"];
@@ -11,7 +12,9 @@ interface ButtonProps {
   size?: ButtonOwnProps["size"];
   fullWidth?: boolean;
   type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
-  children: string;
+  disabled?: boolean;
+  children?: string;
+  onClick?: () => void;
 }
 
 export function Button({
@@ -22,7 +25,9 @@ export function Button({
   size = "small",
   fullWidth = false,
   type = "button",
-  children,
+  disabled = false,
+  children = undefined,
+  onClick = undefined,
 }: ButtonProps) {
   const isIconButton = startIcon && !endIcon && !children;
 
@@ -36,14 +41,10 @@ export function Button({
       size={size}
       fullWidth={fullWidth}
       type={type}
+      disabled={disabled}
+      onClick={() => onClick?.()} // Avoid passing down the event
     >
       {children}
     </MUIButton>
   );
 }
-
-const iconButtonSx: SxProps = {
-  padding: 0,
-  minWidth: "unset",
-  aspectRatio: 1,
-};
