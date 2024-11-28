@@ -4,6 +4,8 @@
     "streetsidesoftware.code-spell-checker",
     "dbaeumer.vscode-eslint",
     "eamodio.gitlens",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "csstools.postcss",
+    "styled-components.vscode-styled-components"
   ]
 }

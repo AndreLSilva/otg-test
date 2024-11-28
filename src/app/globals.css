@@ -4,6 +4,25 @@ html {
   padding: 0;
 }
 
+button {
+  appearance: none;
+
+  margin: 0;
+  border: none;
+  padding: 0;
+
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
 }
