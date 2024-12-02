@@ -49,6 +49,9 @@ export const CarouselContent = styled("div")<CarouselContentProps>`
 
   /* Carousel items */
   & > div {
+    width: fit-content;
+    max-width: min-content;
+
     flex: 1 0;
     flex-basis: ${({ itemsPerView }) => (itemsPerView ? `${100 / itemsPerView}` : undefined)}%;
 

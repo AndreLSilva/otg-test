@@ -84,4 +84,8 @@ export const ResearchesCarousel = styled(Carousel)`
   ${({ theme }) => theme.breakpoints.up("sm")} {
     margin: 0 -3.375rem;
   }
+
+  ${({ theme }) => theme.breakpoints.up("xl")} {
+    margin: 0;
+  }
 `;

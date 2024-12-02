@@ -32,3 +32,8 @@ export function formatNumber(value: CouldBeNumber) {
   if (parsed === undefined) return "";
   return Intl.NumberFormat("pt-BR").format(parsed);
 }
+
+export function truncate(num: number, decimals = 0) {
+  const [integer, fraction] = `${num}`.split(".");
+  return Number(`${integer}.${fraction?.substring(0, decimals) || 0}`);
+}

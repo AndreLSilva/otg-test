@@ -65,11 +65,13 @@ export function Carousel({
   return (
     <Container className={className}>
       <CarouselContainer hideButtonBreakpoint={hideButtonBreakpoint}>
-        <Button
-          startIcon={ChevronLeft}
-          disabled={scrollStatus === "start"}
-          onClick={() => goToPage(page - 1)}
-        />
+        {pagesAmount > 1 && (
+          <Button
+            startIcon={ChevronLeft}
+            disabled={scrollStatus === "start"}
+            onClick={() => goToPage(page - 1)}
+          />
+        )}
 
         {/* Container */}
         <CarouselContent
@@ -84,14 +86,18 @@ export function Carousel({
           ))}
         </CarouselContent>
 
-        <Button
-          startIcon={ChevronRight}
-          disabled={scrollStatus === "end"}
-          onClick={() => goToPage(page + 1)}
-        />
+        {pagesAmount > 1 && (
+          <Button
+            startIcon={ChevronRight}
+            disabled={scrollStatus === "end"}
+            onClick={() => goToPage(page + 1)}
+          />
+        )}
       </CarouselContainer>
 
-      <PaginationDots amount={pagesAmount} selected={page} onSelect={goToPage} />
+      {pagesAmount > 1 && (
+        <PaginationDots amount={pagesAmount} selected={page} onSelect={goToPage} />
+      )}
     </Container>
   );
 }
