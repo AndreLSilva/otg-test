@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/atoms/button/Button";
-import { PaginationDots } from "@/components/atoms/pagination-dots/PaginationDots";
+import { Button } from "@/design-system/atoms/button/Button";
+import { PaginationDots } from "@/design-system/atoms/pagination-dots/PaginationDots";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import { Breakpoint } from "@mui/material";
 import { Children, ReactNode, UIEventHandler, useRef, useState } from "react";

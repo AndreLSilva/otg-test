@@ -1,4 +1,4 @@
-import { Carousel } from "@/components/molecules/carousel/Carousel";
+import { Carousel } from "@/design-system/molecules/carousel/Carousel";
 import { AppHero } from "@/features/app-header/components/app-hero/AppHero";
 import { NotificationsDrawer } from "@/features/notifications/components/notifications-drawer/NotificationDrawer";
 import { styled } from "@mui/material";

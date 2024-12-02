@@ -1,5 +1,5 @@
-import { Card } from "@/components/atoms/card/Card";
-import { StarsIcon } from "@/components/atoms/icons/StarsIcon";
+import { Card } from "@/design-system/atoms/card/Card";
+import { StarsIcon } from "@/design-system/atoms/icons/StarsIcon";
 import { styled } from "@mui/material";
 
 export const Container = styled(Card)`

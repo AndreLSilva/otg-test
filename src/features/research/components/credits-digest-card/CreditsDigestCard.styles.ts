@@ -1,4 +1,4 @@
-import { Paper } from "@/components/atoms/paper/Paper";
+import { Paper } from "@/design-system/atoms/paper/Paper";
 import { styled } from "@mui/material";
 
 export const Container = styled(Paper)``;

@@ -1,5 +1,5 @@
-import { ProgressBar } from "@/components/atoms/progress/progress-bar/ProgressBar";
-import { ProgressBullets } from "@/components/atoms/progress/progress-bullets/ProgressBullets";
+import { ProgressBar } from "@/design-system/atoms/progress/progress-bar/ProgressBar";
+import { ProgressBullets } from "@/design-system/atoms/progress/progress-bullets/ProgressBullets";
 import { useAppDigest } from "@/features/app-digest/hooks/useAppDigest";
 import { formatNumber, parseNumber } from "@/utils/number.utils";
 import { Grid2, Typography } from "@mui/material";
@@ -7,7 +7,7 @@ import { Container } from "./AppDigest.styles";
 import { AppDigestCard } from "./AppDigestCard";
 
 export function AppDigest() {
-  const { loadingAppDigest, appDigest } = useAppDigest();
+  const { isLoadingAppDigest, appDigest } = useAppDigest();
 
   const runningCurrent = parseNumber(appDigest?.researches.running.split("/")[0], 0);
   const runningTotal = parseNumber(appDigest?.researches.running.split("/")[1], 0);

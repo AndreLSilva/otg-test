@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/atoms/button/Button";
-import { Card } from "@/components/atoms/card/Card";
-import { Flex } from "@/components/atoms/flex/Flex";
-import { Paper } from "@/components/atoms/paper/Paper";
+import { Button } from "@/design-system/atoms/button/Button";
+import { Card } from "@/design-system/atoms/card/Card";
+import { Flex } from "@/design-system/atoms/flex/Flex";
+import { Paper } from "@/design-system/atoms/paper/Paper";
 import { useAppDigest } from "@/features/app-digest/hooks/useAppDigest";
 import { formatNumber } from "@/utils/number.utils";
 import { Typography } from "@mui/material";

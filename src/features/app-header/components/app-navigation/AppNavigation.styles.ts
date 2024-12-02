@@ -1,4 +1,4 @@
-import { Button } from "@/components/atoms/button/Button";
+import { Button } from "@/design-system/atoms/button/Button";
 import { ButtonBase, styled } from "@mui/material";
 import Link from "next/link";
 

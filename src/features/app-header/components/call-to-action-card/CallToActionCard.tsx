@@ -1,5 +1,5 @@
 import StarsGif from "@/assets/Stars.gif";
-import { Button } from "@/components/atoms/button/Button";
+import { Button } from "@/design-system/atoms/button/Button";
 import { Add } from "@mui/icons-material";
 import { Typography } from "@mui/material";
 import Image from "next/image";

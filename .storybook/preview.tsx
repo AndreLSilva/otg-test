@@ -1,4 +1,4 @@
-import { defaultTheme, publicSans } from "@/components/theme/theme";
+import { defaultTheme, publicSans } from "@/design-system/theme/theme";
 import { ThemeProvider } from "@mui/material";
 import type { Preview } from "@storybook/react";
 import "../src/app/globals.css";

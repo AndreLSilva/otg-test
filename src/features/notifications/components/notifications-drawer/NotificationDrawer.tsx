@@ -1,7 +1,7 @@
 "use client";
 
-import { Chip } from "@/components/atoms/chip/Chip";
-import { Tabs } from "@/components/molecules/tabs/Tabs";
+import { Chip } from "@/design-system/atoms/chip/Chip";
+import { Tabs } from "@/design-system/molecules/tabs/Tabs";
 import { isSameDay, parseDate } from "@/utils/date.utils";
 import { Close, Notifications } from "@mui/icons-material";
 import { Typography } from "@mui/material";

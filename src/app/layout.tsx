@@ -1,5 +1,5 @@
-import { AppProviders } from "@/components/AppProviders";
-import { publicSans } from "@/components/theme/theme";
+import { AppProviders } from "@/design-system/AppProviders";
+import { publicSans } from "@/design-system/theme/theme";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "./globals.css";

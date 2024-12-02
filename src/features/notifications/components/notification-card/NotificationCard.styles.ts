@@ -1,5 +1,5 @@
-import { Button } from "@/components/atoms/button/Button";
-import { Paper } from "@/components/atoms/paper/Paper";
+import { Button } from "@/design-system/atoms/button/Button";
+import { Paper } from "@/design-system/atoms/paper/Paper";
 import { styled, Typography } from "@mui/material";
 
 export const Container = styled(Paper)`

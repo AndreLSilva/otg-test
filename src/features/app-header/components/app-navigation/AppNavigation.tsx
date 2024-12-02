@@ -1,5 +1,5 @@
 import LogoThumb from "@/assets/logo-thumb.svg";
-import { Button } from "@/components/atoms/button/Button";
+import { Button } from "@/design-system/atoms/button/Button";
 import { Close, Menu, MoreVert } from "@mui/icons-material";
 import { Typography } from "@mui/material";
 import Image from "next/image";
