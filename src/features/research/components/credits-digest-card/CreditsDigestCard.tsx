@@ -4,6 +4,7 @@ import { Button } from "@/design-system/atoms/button/Button";
 import { Card } from "@/design-system/atoms/card/Card";
 import { Flex } from "@/design-system/atoms/flex/Flex";
 import { Paper } from "@/design-system/atoms/paper/Paper";
+import { Skeleton } from "@/design-system/atoms/skeleton/Skeleton";
 import { useAppDigest } from "@/features/app-digest/hooks/useAppDigest";
 import { formatNumber } from "@/utils/number.utils";
 import { Typography } from "@mui/material";
@@ -19,7 +20,9 @@ export function CreditsDigestCard() {
       <Content>
         <Card color="tertiary" padding="1rem">
           <CardContent>
-            <Typography variant="h3">{formatNumber(appDigest?.credits.available)}</Typography>
+            <Typography variant="h3">
+              {isLoadingAppDigest ? <Skeleton /> : formatNumber(appDigest?.credits.available)}
+            </Typography>
             <Typography variant="overline">
               Créditos
               <br />
@@ -30,7 +33,9 @@ export function CreditsDigestCard() {
         <Flex gap="0.75rem">
           <Card color="secondary" padding="1rem" fullWidth>
             <CardContent>
-              <Typography variant="h4">{formatNumber(appDigest?.credits.running)}</Typography>
+              <Typography variant="h4">
+                {isLoadingAppDigest ? <Skeleton /> : formatNumber(appDigest?.credits.running)}
+              </Typography>
               <Typography variant="caption" textTransform="uppercase">
                 Créditos
                 <br />
@@ -41,7 +46,9 @@ export function CreditsDigestCard() {
           {/* TODO: Change color */}
           <Card color="primary" padding="1rem" fullWidth>
             <CardContent>
-              <Typography variant="h4">{formatNumber(appDigest?.credits.reserved)}</Typography>
+              <Typography variant="h4">
+                {isLoadingAppDigest ? <Skeleton /> : formatNumber(appDigest?.credits.reserved)}
+              </Typography>
               <Typography variant="caption" textTransform="uppercase">
                 Créditos
                 <br />

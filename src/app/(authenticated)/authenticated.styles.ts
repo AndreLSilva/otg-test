@@ -64,10 +64,6 @@ export const PageContainer = styled("main")`
   row-gap: 1.875rem;
   column-gap: 1.25rem;
 
-  & > :nth-child(3) {
-    grid-row: span 2;
-  }
-
   ${({ theme }) => theme.breakpoints.up("sm")} {
     grid-template-columns: repeat(2, 1fr);
   }

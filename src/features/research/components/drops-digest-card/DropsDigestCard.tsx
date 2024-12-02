@@ -2,6 +2,7 @@
 
 import { Button } from "@/design-system/atoms/button/Button";
 import { Paper } from "@/design-system/atoms/paper/Paper";
+import { Skeleton } from "@/design-system/atoms/skeleton/Skeleton";
 import { useAppDigest } from "@/features/app-digest/hooks/useAppDigest";
 import { formatNumber } from "@/utils/number.utils";
 import { Mail } from "@mui/icons-material";
@@ -16,10 +17,16 @@ export function DropsDigestCard() {
       <Paper.Header title="Disparos" icon={Mail} border />
       <Content>
         <Typography variant="h2">
-          {formatNumber(appDigest?.audience.sended)}
-          <Typography component="span" variant="h6" color="textSecondary" fontWeight="400">
-            /{formatNumber(appDigest?.audience.balance)}
-          </Typography>
+          {isLoadingAppDigest ? (
+            <Skeleton width="10rem" />
+          ) : (
+            <>
+              {formatNumber(appDigest?.audience.sended)}
+              <Typography component="span" variant="h6" color="textSecondary" fontWeight="400">
+                /{formatNumber(appDigest?.audience.balance)}
+              </Typography>
+            </>
+          )}
         </Typography>
 
         <Typography variant="body2">Disparos feitos</Typography>

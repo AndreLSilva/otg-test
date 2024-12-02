@@ -15,6 +15,7 @@ export const Card: StoryFn<typeof AppDigestCard> = (args) => {
   return <AppDigestCard {...args} />;
 };
 Card.args = {
+  loading: false,
   titlePrimary: "4",
   titleSecondary: "10",
   description: "Lorem\nIpsum",

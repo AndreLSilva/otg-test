@@ -24,6 +24,7 @@ export function AppDigest() {
       <Grid2 size={1}>
         {/* TODO: Progress steps */}
         <AppDigestCard
+          loading={isLoadingAppDigest}
           titlePrimary={formatNumber(runningCurrent)}
           titleSecondary={formatNumber(runningTotal)}
           description={"pesquisas\nem campo"}
@@ -33,12 +34,14 @@ export function AppDigest() {
       </Grid2>
       <Grid2 size={1}>
         <AppDigestCard
+          loading={isLoadingAppDigest}
           titlePrimary={formatNumber(appDigest?.researches.scripting)}
           description="pesquisas em roteirização"
         />
       </Grid2>
       <Grid2 size={{ xs: 2, sm: 1 }}>
         <AppDigestCard
+          loading={isLoadingAppDigest}
           titlePrimary={formatNumber(appDigest?.audience.sended)}
           titleSecondary={formatNumber(appDigest?.audience.balance)}
           description={"disparos\nfeitos"}

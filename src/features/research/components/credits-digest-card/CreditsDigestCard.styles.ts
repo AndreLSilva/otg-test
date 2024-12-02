@@ -1,7 +1,9 @@
 import { Paper } from "@/design-system/atoms/paper/Paper";
 import { styled } from "@mui/material";
 
-export const Container = styled(Paper)``;
+export const Container = styled(Paper)`
+  grid-row: span 2;
+`;
 
 export const Content = styled("div")`
   display: flex;

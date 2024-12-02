@@ -10,6 +10,7 @@ export const EmCampo: StoryFn<typeof ResearchCard> = (args) => {
   return <ResearchCard {...args} />;
 };
 EmCampo.args = {
+  loading: false,
   research: {
     id: 1,
     name: "Título da Pesquisa",
@@ -21,6 +22,7 @@ export const Rascunho: StoryFn<typeof ResearchCard> = (args) => {
   return <ResearchCard {...args} />;
 };
 Rascunho.args = {
+  loading: false,
   research: {
     id: 1,
     name: "Título da Pesquisa",

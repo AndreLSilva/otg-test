@@ -6,6 +6,7 @@ import { CreditsDigestCard } from "@/features/research/components/credits-digest
 import { DropsDigestCard } from "@/features/research/components/drops-digest-card/DropsDigestCard";
 import { ResearchCard } from "@/features/research/components/research-card/ResearchCard";
 import { ResearchViewAllCard } from "@/features/research/components/view-all-card/ViewAllCard";
+import { range } from "@/utils/array.utils";
 import { Typography } from "@mui/material";
 import { PageContainer, ResearchesCarousel } from "./authenticated.styles";
 
@@ -18,9 +19,11 @@ export default function Home() {
         Minhas Pesquisas
       </Typography>
       <ResearchesCarousel spacing={1.25} hideButtonBreakpoint="sm">
-        {appDigest?.researches.myresearches.map((research) => (
-          <ResearchCard key={research.id} research={research} />
-        ))}
+        {isLoadingAppDigest
+          ? range(3).map((i) => <ResearchCard key={i} loading />)
+          : appDigest?.researches.myresearches.map((research) => (
+              <ResearchCard key={research.id} research={research} />
+            ))}
         <ResearchViewAllCard />
       </ResearchesCarousel>
 
