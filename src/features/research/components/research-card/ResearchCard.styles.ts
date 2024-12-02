@@ -55,7 +55,7 @@ export const Header = styled("div")`
   }
 `;
 
-export const FieldBadge = styled("div")`
+export const FieldBadge = styled("span")`
   width: 0.5rem;
   height: 0.5rem;
 
