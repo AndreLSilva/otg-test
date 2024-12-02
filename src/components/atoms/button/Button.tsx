@@ -1,26 +1,30 @@
-import { ButtonOwnProps, Button as MUIButton } from "@mui/material";
+import { ButtonOwnProps } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { SvgIconTypeMap } from "@mui/material/SvgIcon";
-import { ButtonHTMLAttributes, createElement } from "react";
-import { iconButtonSx } from "./Button.styles";
+import { ButtonHTMLAttributes, createElement, ReactNode } from "react";
+import { Container } from "./Button.styles";
 
 interface ButtonProps {
+  className?: string;
   variant?: ButtonOwnProps["variant"];
   startIcon?: OverridableComponent<SvgIconTypeMap> & { muiName: string };
   endIcon?: OverridableComponent<SvgIconTypeMap> & { muiName: string };
+  iconSize?: string;
   color?: ButtonOwnProps["color"];
   size?: ButtonOwnProps["size"];
   fullWidth?: boolean;
   type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
   disabled?: boolean;
-  children?: string;
+  children?: ReactNode;
   onClick?: () => void;
 }
 
 export function Button({
+  className = undefined,
   variant = "contained",
   startIcon = undefined,
   endIcon = undefined,
+  iconSize = undefined,
   color = "primary",
   size = "small",
   fullWidth = false,
@@ -29,11 +33,11 @@ export function Button({
   children = undefined,
   onClick = undefined,
 }: ButtonProps) {
-  const isIconButton = startIcon && !endIcon && !children;
-
   return (
-    <MUIButton
-      sx={isIconButton ? iconButtonSx : undefined}
+    <Container
+      className={className}
+      iconButton={!!startIcon && !endIcon && !children}
+      iconSize={iconSize}
       variant={variant}
       startIcon={startIcon && createElement(startIcon)}
       endIcon={endIcon && createElement(endIcon)}
@@ -45,6 +49,6 @@ export function Button({
       onClick={() => onClick?.()} // Avoid passing down the event
     >
       {children}
-    </MUIButton>
+    </Container>
   );
 }
