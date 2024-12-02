@@ -1,12 +1,16 @@
+"use client";
+
 import { PaperProps as MUIPaperProps } from "@mui/material";
 import { ReactNode } from "react";
 import { Container } from "./Paper.styles";
+import { PaperHeader } from "./PaperHeader";
 
 interface PaperProps {
   className?: string;
   color?: PaperColor;
   variant?: MUIPaperProps["variant"];
   elevation?: number;
+  square?: boolean;
   children?: ReactNode;
 }
 
@@ -17,19 +21,20 @@ export function Paper({
   color = "primary",
   variant = "elevation",
   elevation = 0,
+  square = false,
   children = undefined,
 }: PaperProps) {
   return (
     <Container
       className={className}
-      sx={{
-        color: `${color}.contrastText`,
-        backgroundColor: `${color}.light`,
-      }}
       variant={variant}
       elevation={elevation}
+      square={square}
+      color={color}
     >
       {children}
     </Container>
   );
 }
+
+Paper.Header = PaperHeader;
