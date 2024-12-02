@@ -1,10 +1,17 @@
 import { ProgressBar } from "@/components/atoms/progress/progress-bar/ProgressBar";
 import { ProgressBullets } from "@/components/atoms/progress/progress-bullets/ProgressBullets";
+import { useAppDigest } from "@/features/app-digest/hooks/useAppDigest";
+import { formatNumber, parseNumber } from "@/utils/number.utils";
 import { Grid2, Typography } from "@mui/material";
 import { Container } from "./AppDigest.styles";
 import { AppDigestCard } from "./AppDigestCard";
 
 export function AppDigest() {
+  const { loadingAppDigest, appDigest } = useAppDigest();
+
+  const runningCurrent = parseNumber(appDigest?.researches.running.split("/")[0], 0);
+  const runningTotal = parseNumber(appDigest?.researches.running.split("/")[1], 0);
+
   return (
     <Container container columns={{ xs: 2, sm: 3 }} spacing="0.875rem">
       <Grid2 size={{ xs: 2, sm: 3 }}>
@@ -16,20 +23,30 @@ export function AppDigest() {
 
       <Grid2 size={1}>
         {/* TODO: Progress steps */}
-        <AppDigestCard titlePrimary="0" titleSecondary="0" description={"pesquisas\nem campo"}>
-          <ProgressBullets total={5} progress={2} color="primaryAlt" />
+        <AppDigestCard
+          titlePrimary={formatNumber(runningCurrent)}
+          titleSecondary={formatNumber(runningTotal)}
+          description={"pesquisas\nem campo"}
+        >
+          <ProgressBullets total={runningTotal} progress={runningCurrent} color="primaryAlt" />
         </AppDigestCard>
       </Grid2>
       <Grid2 size={1}>
-        <AppDigestCard titlePrimary="000" description="pesquisas em roteirização" />
+        <AppDigestCard
+          titlePrimary={formatNumber(appDigest?.researches.scripting)}
+          description="pesquisas em roteirização"
+        />
       </Grid2>
       <Grid2 size={{ xs: 2, sm: 1 }}>
         <AppDigestCard
-          titlePrimary="0.000"
-          titleSecondary="00.000"
+          titlePrimary={formatNumber(appDigest?.audience.sended)}
+          titleSecondary={formatNumber(appDigest?.audience.balance)}
           description={"disparos\nfeitos"}
         >
-          <ProgressBar color="primaryAlt" progress={0.4} />
+          <ProgressBar
+            color="primaryAlt"
+            progress={appDigest ? appDigest.audience.sended / appDigest.audience.balance : 0}
+          />
         </AppDigestCard>
       </Grid2>
     </Container>

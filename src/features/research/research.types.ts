@@ -1,4 +1,4 @@
-export interface Research {
+export interface ResearchData {
   id: number;
   name: string;
   status: ResearchStatus;

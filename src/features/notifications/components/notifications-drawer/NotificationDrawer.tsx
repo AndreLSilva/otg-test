@@ -6,6 +6,7 @@ import { isSameDay, parseDate } from "@/utils/date.utils";
 import { Close, Notifications } from "@mui/icons-material";
 import { Typography } from "@mui/material";
 import { Fragment, useMemo, useState } from "react";
+import { useNotifications } from "../../hooks/useNotifications";
 import { NotificationData } from "../../notifications.types";
 import { NotificationCard } from "../notification-card/NotificationCard";
 import {
@@ -21,66 +22,17 @@ interface NotificationsDrawerProps {
   className?: string;
 }
 
-const notifications = [
-  {
-    comments: 2,
-    read: true,
-    mensage:
-      "Seu time está colaborando em \u003Cb\u003EACME Corp: Promoção Verão da Sorte\u003C/b\u003E",
-    id: "43b77862b20c7c2af28a35",
-    createAt: "29/11/2024 13:46:53",
-  },
-  {
-    comments: 2,
-    read: false,
-    mensage:
-      "Seu time está colaborando em \u003Cb\u003EACME Corp: Promoção Verão da Sorte\u003C/b\u003E",
-    id: "43b77862b20c7c2af28a35",
-    createAt: "28/05/2024 13:46:53",
-  },
-  {
-    comments: 2,
-    read: false,
-    mensage:
-      "Seu time está colaborando em \u003Cb\u003EACME Corp: Promoção Verão da Sorte\u003C/b\u003E",
-    id: "df9443205b46390a57357e",
-    createAt: "28/05/2024 13:46:53",
-  },
-  {
-    comments: 2,
-    read: false,
-    mensage:
-      "Seu time está colaborando em \u003Cb\u003EACME Corp: Promoção Verão da Sorte\u003C/b\u003E",
-    id: "c2595bb5bee282b666f313",
-    createAt: "15/06/2024 13:46:53",
-  },
-  {
-    comments: 2,
-    read: false,
-    mensage:
-      "Seu time está colaborando em \u003Cb\u003EACME Corp: Promoção Verão da Sorte\u003C/b\u003E",
-    id: "asdasdas1dds1d",
-    createAt: "28/05/2024 13:46:53",
-  },
-  {
-    comments: 2,
-    read: true,
-    mensage:
-      "Seu time está colaborando em \u003Cb\u003EACME Corp: Promoção Verão da Sorte\u003C/b\u003E",
-    id: "c2595bb5bee282bdsaddasd1wd1ds666f313",
-    createAt: "15/06/2024 13:46:53",
-  },
-];
-
 export function NotificationsDrawer({ className = undefined }: NotificationsDrawerProps) {
   const [open, setOpen] = useState<boolean>(false);
   const [tab, setTab] = useState<number>(0);
+
+  const { isLoadingNotifications, notifications } = useNotifications();
 
   const [sortedNotifications, unreadCount] = useMemo(() => {
     const sorted: Record<string, NotificationData[]> = {};
     let count = 0;
 
-    notifications.forEach((notification) => {
+    notifications?.forEach((notification) => {
       const date = notification.createAt.split(" ")[0];
 
       if (!notification.read) count++;
@@ -89,7 +41,7 @@ export function NotificationsDrawer({ className = undefined }: NotificationsDraw
     });
 
     return [sorted, count];
-  }, []);
+  }, [notifications]);
 
   return (
     <Container className={className} elevation={1} square open={open}>
@@ -113,29 +65,35 @@ export function NotificationsDrawer({ className = undefined }: NotificationsDraw
       </Header>
 
       <List>
-        {Object.entries(sortedNotifications).map(([dateStr, notifications]) => {
-          const date = parseDate(dateStr);
-          return (
-            <Fragment key={dateStr}>
-              <Typography component="h6" variant="body2" color="textSecondary">
-                {isSameDay(date, new Date())
-                  ? "Hoje"
-                  : date.toLocaleDateString(undefined, {
-                      day: "2-digit",
-                      month: "long",
-                      year: "numeric",
-                    })}
-              </Typography>
+        {isLoadingNotifications ? (
+          // TODO: Loading state
+          <p>...loading</p>
+        ) : (
+          // Notifications list items
+          Object.entries(sortedNotifications).map(([dateStr, notifications]) => {
+            const date = parseDate(dateStr);
+            return (
+              <Fragment key={dateStr}>
+                <Typography component="h6" variant="body2" color="textSecondary">
+                  {isSameDay(date, new Date())
+                    ? "Hoje"
+                    : date.toLocaleDateString(undefined, {
+                        day: "2-digit",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                </Typography>
 
-              {notifications.map((notification) => (
-                <Fragment key={notification.id}>
-                  <ListDivider />
-                  <NotificationCard notification={notification} />
-                </Fragment>
-              ))}
-            </Fragment>
-          );
-        })}
+                {notifications.map((notification) => (
+                  <Fragment key={notification.id}>
+                    <ListDivider />
+                    <NotificationCard notification={notification} />
+                  </Fragment>
+                ))}
+              </Fragment>
+            );
+          })
+        )}
       </List>
     </Container>
   );

@@ -3,14 +3,14 @@ import { ReactNode } from "react";
 import { Card } from "./AppDigest.styles";
 
 interface AppDigestCardProps {
-  titlePrimary: string;
-  titleSecondary?: string;
+  titlePrimary?: string | number;
+  titleSecondary?: string | number;
   description: string;
   children?: ReactNode;
 }
 
 export function AppDigestCard({
-  titlePrimary,
+  titlePrimary = undefined,
   titleSecondary = undefined,
   description,
   children = undefined,

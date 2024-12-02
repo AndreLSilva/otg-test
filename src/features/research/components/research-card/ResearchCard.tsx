@@ -2,11 +2,11 @@
 
 import { Typography } from "@mui/material";
 import { ReactNode } from "react";
-import { Research } from "../../research.types";
+import { ResearchData } from "../../research.types";
 import { Container, DraftBadge, FieldBadge, Header } from "./ResearchCard.styles";
 
 interface ResearchCardProps {
-  research: Research;
+  research: ResearchData;
   children?: ReactNode;
 }
 
