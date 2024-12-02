@@ -1,3 +1,4 @@
+import { routes } from "@/constants/routes";
 import { Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,19 +40,19 @@ export function AppNavigationModal({ open, onClose }: AppNavigationModalProps) {
         </CustomerCard>
 
         <NavContainer>
-          <NavButton component={Link} href="#">
+          <NavButton component={Link} href={routes.researches}>
             Pesquisas
           </NavButton>
-          <NavButton component={Link} href="#">
+          <NavButton component={Link} href={routes.credits}>
             Créditos
           </NavButton>
-          <NavButton component={Link} href="#">
+          <NavButton component={Link} href={routes.campaigns}>
             Campanhas
           </NavButton>
-          <NavButton component={Link} href="#">
+          <NavButton component={Link} href={routes.team}>
             Equipe
           </NavButton>
-          <NavButton component={Link} href="#">
+          <NavButton component={Link} href={routes.settings}>
             Configurações
           </NavButton>
         </NavContainer>

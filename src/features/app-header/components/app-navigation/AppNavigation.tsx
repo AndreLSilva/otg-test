@@ -1,4 +1,5 @@
 import LogoThumb from "@/assets/logo-thumb.svg";
+import { routes } from "@/constants/routes";
 import { Button } from "@/design-system/atoms/button/Button";
 import { Close, Menu, MoreVert } from "@mui/icons-material";
 import { Typography } from "@mui/material";
@@ -45,24 +46,24 @@ export function AppNavigation() {
           onClick={() => setNavMenuOpen((c) => !c)}
         />
 
-        <NavButton component={Link} href="#">
+        <NavButton component={Link} href={routes.researches}>
           Pesquisas
         </NavButton>
-        <NavButton component={Link} href="#">
+        <NavButton component={Link} href={routes.credits}>
           Créditos
         </NavButton>
-        <NavButton component={Link} href="#">
+        <NavButton component={Link} href={routes.campaigns}>
           Campanhas
         </NavButton>
-        <NavButton component={Link} href="#">
+        <NavButton component={Link} href={routes.team}>
           Equipe
         </NavButton>
-        <NavButton component={Link} href="#">
+        <NavButton component={Link} href={routes.settings}>
           Configurações
         </NavButton>
       </NavContainer>
 
-      <CorpButton component={Link} href="#">
+      <CorpButton component={Link} href={routes.customer("customer-id")}>
         <Image src={data.corporation.logoSrc} alt="" width={34} height={34} />
         {data.corporation.displayName}
       </CorpButton>

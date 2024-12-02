@@ -17,7 +17,7 @@ export const Container = styled(Paper)`
     }
 
     /* Forward button */
-    button {
+    a {
       &::before {
         width: calc(100% + 2px);
       }
@@ -70,7 +70,11 @@ export const UnreadBadge = styled("div")`
 `;
 
 export const ForwardButton = styled(Button)`
+  display: inline-flex;
+
   border-color: ${({ theme }) => theme.palette.divider};
+
+  position: relative;
 
   &::before {
     content: "";
