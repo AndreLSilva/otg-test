@@ -1,22 +1,32 @@
-import { Box, styled } from "@mui/material";
+import { styled } from "@mui/material";
 
-export const Container = styled(Box)(({ theme }) => ({
-  display: "flex",
-  gap: "0.875rem",
+export const Container = styled("div")`
+  display: flex;
+  flex-direction: column;
 
-  paddingLeft: "0.875rem",
-  paddingRight: "0.875rem",
-  paddingTop: "1.375rem",
-  paddingBottom: "3.75rem",
+  padding: 5.375rem 0 2.375rem 0;
 
-  color: theme.palette.primary.contrastText,
-  backgroundColor: theme.palette.primary.main,
+  color: ${({ theme }) => theme.palette.primary.contrastText};
+  background: ${({ theme }) => theme.palette.primary.main};
 
-  [theme.breakpoints.down("md")]: {
-    flexDirection: "column",
-  },
+  ${({ theme }) => theme.breakpoints.up("md")} {
+    flex-direction: row;
+  }
 
-  "& > :first-child": {
-    width: "100%",
-  },
-}));
+  & > :first-of-type {
+    padding: 0 0.875rem;
+    width: 100%;
+  }
+
+  & > :last-of-type {
+    margin: 1.3125rem 0.875rem 0 0.875rem;
+
+    ${({ theme }) => theme.breakpoints.up("md")} {
+      margin: 0 0.875rem 0 0;
+    }
+
+    ${({ theme }) => theme.breakpoints.up("lg")} {
+      margin: 0 1.3125rem;
+    }
+  }
+`;

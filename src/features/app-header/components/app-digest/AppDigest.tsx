@@ -1,12 +1,13 @@
 import { ProgressBar } from "@/components/atoms/progress/progress-bar/ProgressBar";
+import { ProgressBullets } from "@/components/atoms/progress/progress-bullets/ProgressBullets";
 import { Grid2, Typography } from "@mui/material";
 import { Container } from "./AppDigest.styles";
 import { AppDigestCard } from "./AppDigestCard";
 
 export function AppDigest() {
   return (
-    <Container container columns={{ xs: 2, md: 3 }} spacing="0.875rem">
-      <Grid2 size={{ xs: 2, md: 3 }}>
+    <Container container columns={{ xs: 2, sm: 3 }} spacing="0.875rem">
+      <Grid2 size={{ xs: 2, sm: 3 }}>
         <Typography variant="caption" sx={{ textTransform: "uppercase" }}>
           Resumo mensal
         </Typography>
@@ -15,12 +16,14 @@ export function AppDigest() {
 
       <Grid2 size={1}>
         {/* TODO: Progress steps */}
-        <AppDigestCard titlePrimary="0" titleSecondary="0" description={"pesquisas\nem campo"} />
+        <AppDigestCard titlePrimary="0" titleSecondary="0" description={"pesquisas\nem campo"}>
+          <ProgressBullets total={5} progress={2} color="primaryAlt" />
+        </AppDigestCard>
       </Grid2>
       <Grid2 size={1}>
         <AppDigestCard titlePrimary="000" description="pesquisas em roteirização" />
       </Grid2>
-      <Grid2 size={{ xs: 2, md: 1 }}>
+      <Grid2 size={{ xs: 2, sm: 1 }}>
         <AppDigestCard
           titlePrimary="0.000"
           titleSecondary="00.000"

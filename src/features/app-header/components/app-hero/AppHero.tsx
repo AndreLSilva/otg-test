@@ -1,16 +1,19 @@
 "use client";
 
-import { Box } from "@mui/material";
 import { AppDigest } from "../app-digest/AppDigest";
 import { CallToActionCard } from "../call-to-action-card/CallToActionCard";
 import { Container } from "./AppHero.styles";
 
-export function AppHero() {
+interface AppHeroProps {
+  className?: string;
+}
+
+export function AppHero({ className = undefined }: AppHeroProps) {
   return (
-    <Container>
-      <Box>
+    <Container className={className}>
+      <div>
         <AppDigest />
-      </Box>
+      </div>
 
       <CallToActionCard />
     </Container>

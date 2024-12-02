@@ -17,7 +17,7 @@ export function AppDigestCard({
 }: AppDigestCardProps) {
   return (
     <Card color="primary">
-      <Typography component="p" variant="h4">
+      <Typography component="p" variant="h3">
         {titlePrimary}
         {titleSecondary && (
           <Typography component="span" variant="subtitle1" color="textSecondary" fontWeight="400">
