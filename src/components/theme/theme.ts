@@ -71,9 +71,19 @@ export const defaultTheme = createTheme({
   },
   typography: {
     fontFamily: publicSans.style.fontFamily,
-    h4: {
+    h2: {
+      fontSize: "2.375rem", // 38px
+      lineHeight: "2.790625rem",
+      fontWeight: "700",
+    },
+    h3: {
       fontSize: "1.875rem", // 30px
-      lineHeight: "2.203125rem",
+      lineHeight: "2.790625rem",
+      fontWeight: "700",
+    },
+    h4: {
+      fontSize: "1.5rem", // 24px
+      lineHeight: "1.7625rem",
       fontWeight: "700",
     },
     h5: {
@@ -81,10 +91,20 @@ export const defaultTheme = createTheme({
       lineHeight: "1.615625rem",
       fontWeight: "700",
     },
+    h6: {
+      fontSize: "1.25rem", // 20px
+      lineHeight: "1.46875rem",
+      fontWeight: "700",
+    },
     subtitle1: {
       fontSize: "1.125rem", // 18px
       lineHeight: "1.321875rem",
       fontWeight: "700",
+    },
+    body1: {
+      fontSize: "1rem", // 16px
+      lineHeight: "1.175rem",
+      fontWeight: "400",
     },
     body2: {
       fontSize: "0.875rem", // 14px
@@ -100,6 +120,18 @@ export const defaultTheme = createTheme({
       fontSize: "0.625rem", // 10px
       lineHeight: "0.734375rem",
       fontWeight: "400",
+    },
+  },
+  shape: {
+    borderRadius: 4,
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 872,
+      md: 968,
+      lg: 1282,
+      xl: 1710,
     },
   },
   components: {
