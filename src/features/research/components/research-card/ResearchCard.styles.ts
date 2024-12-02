@@ -5,6 +5,35 @@ import { styled } from "@mui/material";
 export const Container = styled(Card)`
   width: 14.375rem;
   height: 15.125rem;
+
+  margin-top: 1.375rem;
+
+  transition: margin ease-in-out;
+  transition-duration: ${({ theme }) => theme.transitions.duration.shortest}ms;
+
+  &:hover {
+    margin-top: 0rem;
+
+    /* Content */
+    & > :first-of-type {
+      /* Header */
+      & > :first-of-type {
+        /* Status */
+        p {
+          color: ${({ theme }) => theme.palette.info.main};
+
+          /* Status icon */
+          svg {
+            color: ${({ theme }) => theme.palette.info.main};
+          }
+        }
+        /* Title */
+        h6 {
+          color: ${({ theme }) => theme.palette.info.main};
+        }
+      }
+    }
+  }
 `;
 
 export const Header = styled("div")`
@@ -15,6 +44,14 @@ export const Header = styled("div")`
 
   & > :last-child {
     margin-top: 0.25rem;
+  }
+
+  /* Status, status icon and title  */
+  p,
+  svg,
+  h6 {
+    transition: color ease-in-out;
+    transition-duration: ${({ theme }) => theme.transitions.duration.shortest}ms;
   }
 `;
 

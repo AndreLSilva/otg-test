@@ -10,7 +10,9 @@ import { PageContainer, ResearchesCarousel } from "./authenticated.styles";
 export default function Home() {
   return (
     <PageContainer>
-      <Typography variant="h6">Minhas Pesquisas</Typography>
+      <Typography sx={{ marginBottom: "-1.375rem" }} variant="h6">
+        Minhas Pesquisas
+      </Typography>
       <ResearchesCarousel spacing={1.25} hideButtonBreakpoint="sm">
         <ResearchCard research={{ id: 1, name: "Lorem ipsum", status: "Em Campo" }} />
         <ResearchCard research={{ id: 2, name: "Lorem ipsum", status: "Rascunho" }} />

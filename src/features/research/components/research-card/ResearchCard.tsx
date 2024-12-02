@@ -17,7 +17,7 @@ export function ResearchCard({
   return (
     <Container>
       <Header>
-        <Typography variant="overline">
+        <Typography component="p" variant="overline">
           {status}
           {
             {
