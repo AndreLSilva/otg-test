@@ -1,30 +1,40 @@
-import { styled } from "@mui/material";
+import { Breakpoint, styled } from "@mui/material";
 
 interface CarouselContentProps {
   itemsPerView: number | undefined;
   spacing: number;
 }
 
+interface CarouselContainerProps {
+  hideButtonBreakpoint: Breakpoint;
+}
+
 export const Container = styled("div")`
   display: flex;
-  align-items: center;
   flex-direction: column;
-  gap: 0.75rem;
+
+  overflow: hidden;
+
+  /* Navigation dots */
+  & > div:last-of-type {
+    margin: 1rem auto;
+  }
 `;
 
-export const CarouselContainer = styled("div")`
+export const CarouselContainer = styled("div")<CarouselContainerProps>`
   display: flex;
   align-items: center;
   gap: 1rem;
 
   width: 100%;
 
-  & > button {
-    &:first-of-type {
-      margin-left: -3.375rem;
+  ${({ theme, hideButtonBreakpoint }) => theme.breakpoints.down(hideButtonBreakpoint)} {
+    & > button {
+      display: none;
     }
-    &:last-of-type {
-      margin-right: -3.375rem;
+
+    & > div {
+      padding: 0 1.5rem;
     }
   }
 `;

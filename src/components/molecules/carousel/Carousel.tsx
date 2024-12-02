@@ -3,17 +3,22 @@
 import { Button } from "@/components/atoms/button/Button";
 import { PaginationDots } from "@/components/atoms/pagination-dots/PaginationDots";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import { Breakpoint } from "@mui/material";
 import { Children, ReactNode, UIEventHandler, useRef, useState } from "react";
 import { CarouselContainer, CarouselContent, Container } from "./Carousel.styles";
 
 interface CarouselProps {
+  className?: string;
   itemsPerView?: number;
+  hideButtonBreakpoint?: Breakpoint;
   /** Spacing between items **in rem units**. */
   spacing?: number;
   children?: ReactNode;
 }
 
 export function Carousel({
+  className = undefined,
+  hideButtonBreakpoint = "xs",
   itemsPerView = undefined,
   spacing = 0,
   children = undefined,
@@ -58,8 +63,8 @@ export function Carousel({
   };
 
   return (
-    <Container>
-      <CarouselContainer>
+    <Container className={className}>
+      <CarouselContainer hideButtonBreakpoint={hideButtonBreakpoint}>
         <Button
           startIcon={ChevronLeft}
           disabled={scrollStatus === "start"}
