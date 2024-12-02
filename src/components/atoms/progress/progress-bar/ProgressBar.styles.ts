@@ -1,14 +1,24 @@
-import { Box, styled } from "@mui/material";
+import { styled } from "@mui/material";
+import { ProgressBarColor } from "./ProgressBar";
 
-export const Container = styled(Box)({
-  height: "0.75rem",
-  border: "solid 0.0625rem",
-  borderRadius: "0.75rem",
+interface ContainerProps {
+  color: ProgressBarColor;
+}
 
-  "& > :only-child": {
-    height: "100%",
-    borderRadius: "0.75rem",
+export const Container = styled("div")<ContainerProps>`
+  height: 0.75rem;
+  border: solid 0.0625rem;
+  border-radius: 0.75rem;
 
-    transition: "width ease-in-out 1s",
-  },
-});
+  border-color: ${({ theme, color }) => theme.palette[color].main};
+
+  & > :only-child {
+    height: 100%;
+    border-radius: 0.75rem;
+
+    background: ${({ theme, color }) => theme.palette[color].main};
+
+    transition: width ease-in-out;
+    transition-duration: ${({ theme }) => theme.transitions.duration.complex}ms;
+  }
+`;
