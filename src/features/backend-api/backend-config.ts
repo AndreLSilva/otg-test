@@ -2,7 +2,7 @@ import { QueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 export const apiClient = axios.create({
-  baseURL: "https://api.basestudio.app/v1/c6b1a48fbc86a778b977b0",
+  baseURL: process.env.NEXT_PUBLIC_API_HOST,
 });
 
 export const queryClient = new QueryClient({

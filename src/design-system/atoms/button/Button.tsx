@@ -1,6 +1,7 @@
 import { ButtonOwnProps } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { SvgIconTypeMap } from "@mui/material/SvgIcon";
+import Link from "next/link";
 import { ButtonHTMLAttributes, createElement, ReactNode } from "react";
 import { Container } from "./Button.styles";
 
@@ -14,6 +15,7 @@ interface ButtonProps {
   size?: ButtonOwnProps["size"];
   fullWidth?: boolean;
   type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
+  href?: string;
   disabled?: boolean;
   children?: ReactNode;
   onClick?: () => void;
@@ -29,12 +31,14 @@ export function Button({
   size = "small",
   fullWidth = false,
   type = "button",
+  href = undefined,
   disabled = false,
   children = undefined,
   onClick = undefined,
 }: ButtonProps) {
   return (
     <Container
+      as={href ? Link : undefined}
       className={className}
       iconButton={!!startIcon && !endIcon && !children}
       iconSize={iconSize}
@@ -45,6 +49,7 @@ export function Button({
       size={size}
       fullWidth={fullWidth}
       type={type}
+      href={href}
       disabled={disabled}
       onClick={() => onClick?.()} // Avoid passing down the event
     >
