@@ -25,6 +25,13 @@ declare module "@mui/material/Button" {
   }
 }
 
+declare module "@mui/material/Chip" {
+  interface ChipPropsColorOverrides {
+    primaryAlt: true;
+    tertiary: true;
+  }
+}
+
 export const defaultTheme = createTheme({
   palette: {
     mode: "light",
