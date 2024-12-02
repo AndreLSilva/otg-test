@@ -2,6 +2,7 @@
 
 import { Chip } from "@/design-system/atoms/chip/Chip";
 import { Tabs } from "@/design-system/molecules/tabs/Tabs";
+import { range } from "@/utils/array.utils";
 import { isSameDay, parseDate } from "@/utils/date.utils";
 import { Close, Notifications } from "@mui/icons-material";
 import { Typography } from "@mui/material";
@@ -65,35 +66,37 @@ export function NotificationsDrawer({ className = undefined }: NotificationsDraw
       </Header>
 
       <List>
-        {isLoadingNotifications ? (
-          // TODO: Loading state
-          <p>...loading</p>
-        ) : (
-          // Notifications list items
-          Object.entries(sortedNotifications).map(([dateStr, notifications]) => {
-            const date = parseDate(dateStr);
-            return (
-              <Fragment key={dateStr}>
-                <Typography component="h6" variant="body2" color="textSecondary">
-                  {isSameDay(date, new Date())
-                    ? "Hoje"
-                    : date.toLocaleDateString(undefined, {
-                        day: "2-digit",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                </Typography>
-
-                {notifications.map((notification) => (
-                  <Fragment key={notification.id}>
-                    <ListDivider />
-                    <NotificationCard notification={notification} />
-                  </Fragment>
-                ))}
+        {isLoadingNotifications
+          ? range(6).map((i) => (
+              <Fragment key={i}>
+                <ListDivider />
+                <NotificationCard key={i} loading />
               </Fragment>
-            );
-          })
-        )}
+            ))
+          : // Notifications list items
+            Object.entries(sortedNotifications).map(([dateStr, notifications]) => {
+              const date = parseDate(dateStr);
+              return (
+                <Fragment key={dateStr}>
+                  <Typography component="h6" variant="body2" color="textSecondary">
+                    {isSameDay(date, new Date())
+                      ? "Hoje"
+                      : date.toLocaleDateString(undefined, {
+                          day: "2-digit",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                  </Typography>
+
+                  {notifications.map((notification) => (
+                    <Fragment key={notification.id}>
+                      <ListDivider />
+                      <NotificationCard notification={notification} />
+                    </Fragment>
+                  ))}
+                </Fragment>
+              );
+            })}
       </List>
     </Container>
   );
