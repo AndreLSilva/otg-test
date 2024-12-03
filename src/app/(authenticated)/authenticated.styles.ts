@@ -1,6 +1,7 @@
 import { Carousel } from "@/design-system/molecules/carousel/Carousel";
 import { AppHero } from "@/features/app-header/components/app-hero/AppHero";
 import { NotificationsDrawer } from "@/features/notifications/components/notifications-drawer/NotificationDrawer";
+import { CreditsDigestCard as OriginalCreditsDigestCard } from "@/features/research/components/credits-digest-card/CreditsDigestCard";
 import { styled } from "@mui/material";
 
 export const LayoutContainer = styled("div")`
@@ -67,6 +68,11 @@ export const PageContainer = styled("main")`
   ${({ theme }) => theme.breakpoints.up("sm")} {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  ${({ theme }) => theme.breakpoints.up("xl")} {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2.5rem;
+  }
 `;
 
 export const ResearchesCarousel = styled(Carousel)`
@@ -82,6 +88,15 @@ export const ResearchesCarousel = styled(Carousel)`
   }
 
   ${({ theme }) => theme.breakpoints.up("xl")} {
+    grid-column: span 3;
     margin: 0;
+  }
+`;
+
+export const CreditsDigestCard = styled(OriginalCreditsDigestCard)`
+  grid-row: span 2;
+
+  ${({ theme }) => theme.breakpoints.up("xl")} {
+    grid-column: span 2;
   }
 `;
